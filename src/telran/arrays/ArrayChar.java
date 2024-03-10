@@ -72,19 +72,7 @@ public class ArrayChar {
     	    return true;
      }
      
-     public boolean equalsIgnoreCase (ArrayChar another) {
-    	 
-    	 int length = Math.min(this.array.length, another.array.length);
-    	 char[] thisLowerCaseArray = new String(array).toLowerCase().toCharArray();
- 		char[] anotherLowerCaseArray = new String(another.array).toLowerCase().toCharArray();
-    	 
- 	    
- 	    for (int index = 0; index < length; index++) {
- 	        if (thisLowerCaseArray[index] != anotherLowerCaseArray[index]) {
- 	            return false;
- 	        }
- 	    }
-
- 	    return true;
+     public boolean equalsIgnoreCase (ArrayChar another) {	 
+    	return compareToIgnporeCase(another) == 0 ? true : false;
      }
 }
