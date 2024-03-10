@@ -35,14 +35,11 @@ public class ArrayChar {
 	public int compareToIgnporeCase(ArrayChar another) {
 		int length = Math.min(this.array.length, another.array.length);
 		int index = 0;
-		char[] thisLowerCaseArray = new String(array).toLowerCase().toCharArray();
-		char[] anotherLowerCaseArray = new String(another.array).toLowerCase().toCharArray();
-
-		while (index < length && thisLowerCaseArray[index] == anotherLowerCaseArray[index]) {
+		while (index < length && Character.toLowerCase(array[index]) == Character.toLowerCase(another.array[index])) {
 			index++;
 		}
-		return index == length ? thisLowerCaseArray.length - anotherLowerCaseArray.length
-				: thisLowerCaseArray[index] - anotherLowerCaseArray[index];
+		return index == length ? array.length - another.array.length : array[index] - another.array[index];
+
 	}
 
 	public int count(char character) {
@@ -54,16 +51,16 @@ public class ArrayChar {
 		}
 		return count;
 	}
-	
-     public boolean contains(char character) {
- 		return indexOf(character)== -1 ? false : true;
-     }
-    
-     public boolean equals(ArrayChar another) {
-    	 return compareTo(another)== 0 ? true : false;
-     }
-     
-     public boolean equalsIgnoreCase (ArrayChar another) {	 
-    	return compareToIgnporeCase(another) == 0 ? true : false;
-     }
+
+	public boolean contains(char character) {
+		return indexOf(character) == -1 ? false : true;
+	}
+
+	public boolean equals(ArrayChar another) {
+		return compareTo(another) == 0 ? true : false;
+	}
+
+	public boolean equalsIgnoreCase(ArrayChar another) {
+		return compareToIgnporeCase(another) == 0 ? true : false;
+	}
 }
