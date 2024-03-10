@@ -56,12 +56,7 @@ public class ArrayChar {
 	}
 	
      public boolean contains(char character) {
- 		for (int i = 0; i < array.length; i++) {
- 			if (array[i] == character) {
- 				return true;
- 			}
- 		}
- 		return false;
+ 		return indexOf(character)== -1 ? false : true;
      }
     
      public boolean equals(ArrayChar another) {
