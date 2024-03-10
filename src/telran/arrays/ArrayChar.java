@@ -60,16 +60,7 @@ public class ArrayChar {
      }
     
      public boolean equals(ArrayChar another) {
-    	 
-    	 int length = Math.min(this.array.length, another.array.length);
-    	    
-    	    for (int index = 0; index < length; index++) {
-    	        if (this.array[index] != another.array[index]) {
-    	            return false;
-    	        }
-    	    }
-
-    	    return true;
+    	 return compareTo(another)== 0 ? true : false;
      }
      
      public boolean equalsIgnoreCase (ArrayChar another) {	 

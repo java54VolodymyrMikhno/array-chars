@@ -47,11 +47,15 @@ class ArrayCharTest {
 	void compareToIgnporeCaseTest() {
 		char[] ar1 = { '1', '2', '3', 'A' };
 		char[] ar2 = { '9' };
+		char[] ar4 = { };
 		char[] ar3 = { '1', '2', '3', 'a' };
 		ArrayChar arrayChar1 = new ArrayChar(ar1);
 		ArrayChar arrayChar2 = new ArrayChar(ar2);
 		ArrayChar arrayChar3 = new ArrayChar(ar3);
+		ArrayChar arrayChar4 = new ArrayChar(ar4);
 
+		assertEquals(4, arrayChar1.compareToIgnporeCase(arrayChar4));
+		assertEquals(-4, arrayChar4.compareToIgnporeCase(arrayChar1));
 		assertEquals(8, arrayChar2.compareToIgnporeCase(arrayChar1));
 		assertEquals(-8, arrayChar1.compareToIgnporeCase(arrayChar2));
 		assertEquals(1, new ArrayChar(new char[] { 'A', 'a' }).compareToIgnporeCase(new ArrayChar(new char[] { 'a' })));
