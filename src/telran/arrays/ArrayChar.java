@@ -60,15 +60,15 @@ public class ArrayChar {
 	}
 
 	public boolean contains(char character) {
-		return  indexOf(character) != -1 ;
+		return  indexOf(character) > -1 ;
 	}
 
 	public boolean equals(ArrayChar another) {
-		return compareTo(another) == 0 ;
+		return another != null && compareTo(another) == 0 ;
 	}
 
 	public boolean equalsIgnoreCase(ArrayChar another) {
-		return compareToIgnoreCase(another) == 0 ;
+		return another != null && compareToIgnoreCase(another) == 0 ;
 	}
 	
 	

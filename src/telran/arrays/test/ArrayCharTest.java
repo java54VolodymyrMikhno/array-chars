@@ -128,4 +128,5 @@ class ArrayCharTest {
 	    assertEquals(2,arrayChar.count('2'));
 	    assertFalse(arrayChar.contains('a'));
 	}
+
 }
