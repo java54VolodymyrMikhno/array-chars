@@ -54,14 +54,15 @@ class ArrayCharTest {
 		ArrayChar arrayChar3 = new ArrayChar(ar3);
 		ArrayChar arrayChar4 = new ArrayChar(ar4);
 
-		assertEquals(4, arrayChar1.compareToIgnporeCase(arrayChar4));
-		assertEquals(-4, arrayChar4.compareToIgnporeCase(arrayChar1));
-		assertEquals(8, arrayChar2.compareToIgnporeCase(arrayChar1));
-		assertEquals(-8, arrayChar1.compareToIgnporeCase(arrayChar2));
-		assertEquals(1, new ArrayChar(new char[] { 'A', 'a' }).compareToIgnporeCase(new ArrayChar(new char[] { 'a' })));
+		assertEquals(4, arrayChar1.compareToIgnoreCase(arrayChar4));
+		assertTrue(new ArrayChar(new char[]{'L'}).compareToIgnoreCase(new ArrayChar(new char[]{'a'})) > 0);
+		assertEquals(-4, arrayChar4.compareToIgnoreCase(arrayChar1));
+		assertEquals(8, arrayChar2.compareToIgnoreCase(arrayChar1));
+		assertEquals(-8, arrayChar1.compareToIgnoreCase(arrayChar2));
+		assertEquals(1, new ArrayChar(new char[] { 'A', 'a' }).compareToIgnoreCase(new ArrayChar(new char[] { 'a' })));
 		assertEquals(-1,
-				new ArrayChar(new char[] { 'A' }).compareToIgnporeCase(new ArrayChar(new char[] { 'a', 'a' })));
-		assertEquals(0, arrayChar1.compareToIgnporeCase(arrayChar3));
+				new ArrayChar(new char[] { 'A' }).compareToIgnoreCase(new ArrayChar(new char[] { 'a', 'a' })));
+		assertEquals(0, arrayChar1.compareToIgnoreCase(arrayChar3));
 	}
 
 	@Test
@@ -72,6 +73,7 @@ class ArrayCharTest {
 		assertEquals(3, arrayChar1.count('1'));
 		assertEquals(2, arrayChar1.count('2'));
 		assertEquals(0, arrayChar1.count('T'));
+		assertEquals(0, new ArrayChar(new char[] {}).count('T'));
 	}
 
 	@Test
@@ -110,5 +112,20 @@ class ArrayCharTest {
 		assertFalse(arrayChar2.equalsIgnoreCase(arrayChar1));
 		assertFalse(arrayChar1.equalsIgnoreCase(arrayChar2));
 		assertTrue(arrayChar1.equalsIgnoreCase(arrayChar3));
+	}
+	
+	@Test
+	void bugTest() {
+		char[] array = {'1', '2', '3', '2'};
+	    ArrayChar arrayChar = new ArrayChar(array);
+	    assertEquals(2, arrayChar.count('2'));
+	    assertEquals(0, arrayChar.count('S'));
+	    assertEquals(0, new ArrayChar(new char[] {}).count('Q'));
+	    assertFalse(arrayChar.contains('a'));
+	    array[3] = 'a';
+//	    assertEquals(1,arrayChar.count('2'));
+//	    assertTrue(arrayChar.contains('a'));
+	    assertEquals(2,arrayChar.count('2'));
+	    assertFalse(arrayChar.contains('a'));
 	}
 }

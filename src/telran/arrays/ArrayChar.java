@@ -4,7 +4,11 @@ public class ArrayChar {
 	private char[] array;
 
 	public ArrayChar(char[] array) {
-		this.array = array;
+//		this.array = array;
+		this.array = new char[array.length];
+		for(int i=0; i<this.array.length; i++) {
+			this.array[i] = array[i];
+		}
 	}
 
 	public int compareTo(ArrayChar another) {
@@ -32,35 +36,40 @@ public class ArrayChar {
 		return index;// index == -1 ? -1 : index
 	}
 
-	public int compareToIgnporeCase(ArrayChar another) {
+	public int compareToIgnoreCase(ArrayChar another) {
 		int length = Math.min(this.array.length, another.array.length);
 		int index = 0;
-		while (index < length && Character.toLowerCase(array[index]) == Character.toLowerCase(another.array[index])) {
+		while (index < length &&
+				Character.toLowerCase(array[index]) ==
+				Character.toLowerCase(another.array[index])) {
 			index++;
 		}
-		return index == length ? array.length - another.array.length : array[index] - another.array[index];
+		return index == length ? array.length - another.array.length
+				: Character.toLowerCase(array[index]) - Character.toLowerCase(another.array[index]);
 
 	}
 
 	public int count(char character) {
-		int count = 0;
+		int counter = 0;
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == character) {
-				count++;
+				counter++;
 			}
 		}
-		return count;
+		return counter;
 	}
 
 	public boolean contains(char character) {
-		return indexOf(character) == -1 ? false : true;
+		return  indexOf(character) != -1 ;
 	}
 
 	public boolean equals(ArrayChar another) {
-		return compareTo(another) == 0 ? true : false;
+		return compareTo(another) == 0 ;
 	}
 
 	public boolean equalsIgnoreCase(ArrayChar another) {
-		return compareToIgnporeCase(another) == 0 ? true : false;
+		return compareToIgnoreCase(another) == 0 ;
 	}
+	
+	
 }
